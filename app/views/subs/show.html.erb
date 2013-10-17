@@ -1,0 +1,14 @@
+<h1><%= @sub.name %></h1>
+
+<% @sub.links.each do |link| %>
+<%= link_to link.title, link_url(link) %> submitted by <%= link.submitter.name %>
+<br>
+<% end %>
+
+<br>
+
+<%= button_to "Add a link", new_link_url, method: :get%>
+
+<% if @sub.moderator == current_user %>
+<%= button_to "Edit Sub", edit_sub_url(@sub), :method => :get %>
+<% end %>

@@ -1,0 +1,35 @@
+<% if current_user %>
+<form action="<%= link_url(@link) %>" method="post" accept-charset="utf-8">
+
+	<input type="hidden" name="_method" value="put">
+
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+	<h2>Edit Link</h2>
+
+	<label for="link">Link</label>
+	<input type="text" name="link[title]" id="link" value="<%= @link.title %>">
+  <br>
+
+	<label for="url">URL</label>
+	<input type="text" name="link[url]" id="url" value="<%= @link.url %>">
+  <br>
+
+
+	<textarea name="link[description]" rows="8" cols="40"><%= @link.description %></textarea>
+
+	<input type="hidden" name="link[sub_ids][]">
+
+	<% Sub.all.each do |sub| %>
+	<br>
+	<input type="checkbox" name="link[sub_ids][]" value="<%=sub.id %>" id="<%=sub.id%>"
+	<%= "checked" if @link.subs.include?(sub) %>>
+	<label for="<%=sub.id%>"><%= sub.name %></label>
+
+
+	<% end %>
+
+	<p><input type="submit" value="Continue &rarr;"></p>
+</form>
+<br><br>
+<% end %>

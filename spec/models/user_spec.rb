@@ -27,4 +27,5 @@ describe User do
   it { should allow_mass_assignment_of(:name)}
 
   it { should have_many(:subs)}
+  it { should have_many(:submissions)}
 end

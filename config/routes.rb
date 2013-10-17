@@ -3,4 +3,5 @@ RedditClone::Application.routes.draw do
   resource :session, :only => [:destroy, :new, :create]
 
   resources :subs
+  resources :links
 end

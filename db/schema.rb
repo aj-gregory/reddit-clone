@@ -11,15 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131017182416) do
+ActiveRecord::Schema.define(:version => 20131017211851) do
+
+  create_table "link_subs", :force => true do |t|
+    t.integer  "sub_id"
+    t.integer  "link_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "link_subs", ["link_id"], :name => "index_link_subs_on_link_id"
+  add_index "link_subs", ["sub_id"], :name => "index_link_subs_on_sub_id"
 
   create_table "links", :force => true do |t|
     t.string   "title"
     t.string   "url"
     t.text     "description"
-    t.integer  "sub_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "submitter_id"
   end
 
   add_index "links", ["title"], :name => "index_links_on_title"
