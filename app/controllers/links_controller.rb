@@ -40,6 +40,8 @@ class LinksController < ApplicationController
   end
 
   def index
+    @links = Link.all
+    render :index
   end
 
   def destroy
