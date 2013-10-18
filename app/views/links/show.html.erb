@@ -9,6 +9,17 @@
 <h2>Description</h2>
 <%= @link.description %>
 
+<h2> Comments </h2>
+	<% comments_by_parent_id = @link.comments_by_parent_id %>
+	<%= render 'layouts/comments', comments: comments_by_parent_id, parent_comment: nil %>
+<br>
+<h2>Add Comment </h2>
+<form action="<%= link_comments_url(@link)%>" method="POST" accept-charset="utf-8">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+	<label for="comment">Comment</label>
+	<input type="text" name="comment[body]" id="comment">
+	<p><input type="submit" value="Continue &rarr;"></p>
+</form>
 
 <% if current_user == @link.submitter %>
 <br><br>

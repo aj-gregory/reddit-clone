@@ -6,6 +6,6 @@ FactoryGirl.define do
     url "MyString"
     description "MyText"
     submitter_id 1
-    sub_id 1
+
   end
 end

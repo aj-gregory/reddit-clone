@@ -28,4 +28,6 @@ describe User do
 
   it { should have_many(:subs)}
   it { should have_many(:submissions)}
+
+  it { should have_many(:comments)}
 end

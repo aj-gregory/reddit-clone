@@ -1,0 +1,10 @@
+<form action="<%= link_comments_url(@link) %>" method="post" accept-charset="utf-8">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+	<label for="body">Comment</label>
+	<input type="text" name="comment[body]" id="body">
+
+	<input type="hidden" name="comment[parent_comment_id]" value="<%= params[:parent_comment_id] %>">
+
+	<p><input type="submit" value="Continue &rarr;"></p>
+</form>

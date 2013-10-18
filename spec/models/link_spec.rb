@@ -20,4 +20,5 @@ describe Link do
   it { should have_many(:link_subs)}
   it { should have_many(:subs)}
 
+  it { should have_many(:comments)}
 end

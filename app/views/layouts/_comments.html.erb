@@ -1,0 +1,13 @@
+
+<% comments[parent_comment].each do |comment| %>
+<ul>
+	<%= comment.body %>
+	<br>posted by <%= comment.commenter.name %>
+<br><%= link_to "Reply", new_link_comment_url(@link, :parent_comment_id => comment.id) %>
+	<%= render 'layouts/comments', comments: comments, parent_comment: comment.id %>
+</ul>
+
+<% end %>
+
+
+
