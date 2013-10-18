@@ -21,4 +21,7 @@ describe Link do
   it { should have_many(:subs)}
 
   it { should have_many(:comments)}
+
+  it { should have_many(:votes)}
+  it { should have_many(:voters)}
 end

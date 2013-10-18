@@ -7,6 +7,8 @@ class Link < ActiveRecord::Base
   has_many :link_subs
   has_many :subs, through: :link_subs
   has_many :comments
+  has_many :votes, :class_name => "LinkVote"
+  has_many :voters, :through => :votes
 
   def comments_by_parent_id
     comment_hash = Hash.new([])
